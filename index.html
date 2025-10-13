@@ -6,45 +6,25 @@
   <title>My Tailwind Portfolio</title>
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600;800&display=swap"
     rel="stylesheet"
   />
 
   <!-- Tailwind CSS -->
-  <link href="./dist/output.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Font Awesome Icons -->
+  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   />
 
   <style>
-    /* 🌟 Global Image Controls */
-    img {
-      @apply max-w-full h-auto object-cover rounded-lg;
+    body {
+      font-family: 'Nunito', sans-serif;
+      scroll-behavior: smooth;
     }
-
-    /* Standard size for service and portfolio images */
-    .img-card {
-      @apply w-full h-64 object-cover rounded-lg;
-    }
-
-    /* Larger size for hero/main banner image */
-    .img-hero {
-      @apply h-[80vh] object-cover;
-    }
-
-    /* Optional: dot/decoration images smaller */
-    .img-small {
-      @apply w-24 h-24 object-contain;
-    }
-
-    /* 🧭 Navbar always on top */
     nav {
       position: fixed;
       top: 0;
@@ -52,228 +32,183 @@
       width: 100%;
       z-index: 50;
     }
+    .typing-cursor {
+  display: inline-block;
+  animation: blink 1s steps(2, start) infinite;
+  color: #ff5757; /* adjust color if you want */
+}
+@keyframes blink {
+  to { visibility: hidden; }
+}
 
-    /* Ensure hero background doesn't overlap navbar */
-    .h-1\/2,
-    .lg\:h-screen {
-      position: relative;
-      z-index: 1;
-    }
   </style>
 </head>
 
-<body class="font-nunito">
-  <!-- Introduction Section -->
-  <div
-    class="h-1/2 lg:h-screen bg-gradient-to-t from-indigo-200 relative overflow-hidden"
-  >
-    <!-- Navbar -->
-    <nav class="w-full bg-white shadow">
-      <div class="container mx-auto py-5 flex justify-between items-center">
-        <!-- Logo -->
-        <div class="flex items-center gap-2">
-          <img class="w-8" src="./images/logo portfolio 1.jpg" alt="Logo" />
-          <span class="text-2xl font-bold text-indigo-900">Portwind</span>
-        </div>
+<body class="bg-gradient-to-t from-indigo-200 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
+  <!-- Navbar -->
+  <nav class="w-full bg-indigo-700 shadow-lg">
+    <div class="container mx-auto py-5 flex justify-between items-center px-4 text-white">
+      <!-- Logo -->
+      <a href="#homepage" class="flex items-center gap-2 hover:opacity-80 transition">
+  <img class="w-8 rounded-full" src="./images/logo portfolio 1.jpg" alt="Logo" />
+  <span class="text-2xl font-bold">Portwind</span>
+</a>
 
-        <!-- Menu -->
-        <ul
-          id="menu"
-          class="hidden bg-indigo-900 absolute left-0 top-0 w-full p-10 rounded-3xl space-y-10 text-white text-center"
-        >
-          <li class="hover:text-gray-500"><a href="#">Homepage</a></li>
-          <li class="hover:text-gray-500"><a href="#">About</a></li>
-          <li class="hover:text-gray-500"><a href="#">Services</a></li>
-          <li class="hover:text-gray-500"><a href="#">Works</a></li>
-          <li class="hover:text-gray-500"><a href="#">Contact</a></li>
-        </ul>
 
-        <!-- Dark mode toggle -->
-        <img
-          src="./images/moon image.jpeg"
-          class="hidden md:block w-5 cursor-pointer z-20"
-          alt="Dark Mode Toggle"
-        />
+      <!-- Menu -->
+      <ul
+        id="menu"
+        class="hidden md:flex flex-col md:flex-row absolute md:static top-16 left-0 bg-indigo-700 md:bg-transparent w-full md:w-auto text-center md:text-left md:space-x-10 font-medium space-y-4 md:space-y-0 py-4 md:py-0 transition-all"
+      >
+        <li id="hLink" class="hover:text-indigo-200"><a href="#homepage">Homepage</a></li>
+        <li id="hLink" class="hover:text-indigo-200"><a href="#about">About</a></li>
+        <li id="hLink" class="hover:text-indigo-200"><a href="#services">Services</a></li>
+        <li id="hLink" class="hover:text-indigo-200"><a href="#works">Works</a></li>
+        <li id="hLink" class="hover:text-indigo-200"><a href="#contact">Contact</a></li>
+      </ul>
 
-        <!-- Hamburger icon -->
-        <div id="hamburger" class="space-y-1 md:hidden cursor-pointer">
-          <div class="w-6 h-0.5 bg-black"></div>
-          <div class="w-6 h-0.5 bg-black"></div>
-          <div class="w-6 h-0.5 bg-black"></div>
-        </div>
+      <!-- Dark Mode Toggle -->
+      <button id="moon" class="hidden md:block text-white text-xl">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+
+      <!-- Hamburger Icon -->
+      <div id="hamburger" class="space-y-1 cursor-pointer md:hidden">
+        <div class="w-6 h-0.5 bg-white"></div>
+        <div class="w-6 h-0.5 bg-white"></div>
+        <div class="w-6 h-0.5 bg-white"></div>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <!-- Hero Image -->
-    <img
-      class="absolute bottom-0 right-0 lg:left-0 mx-auto img-hero"
-      src="./images/man image.jpeg"
-      alt="Hero Image"
-    />
+  <!-- Hero Section -->
+<section
+  id="homepage"
+  class="relative min-h-screen flex items-center justify-center p-6 bg-cover bg-center"
+  style="background-image: url('./images/man image.jpeg'); background-position: center bottom;"
+>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-gray-900 opacity-60"></div>
 
-    <!-- Circle Decoration -->
-    <div
-      class="hidden lg:block absolute -bottom-1/4 right-0 left-0 mx-auto w-96 h-96 bg-indigo-900 rounded-full"
-    ></div>
-
-    <!-- Hero Text -->
-    <div
-      class="absolute top-1/3 left-5 text-xl sm:left-10 sm:text-4xl md:left-1/4 md:text-6xl lg:left-48 xl:text-7xl font-bold"
-    >
-      <span class="text-gray-600">Freelance</span>
-      <p class="text-red-500">Developer</p>
+  <!-- Content -->
+  <div class="relative z-10 flex flex-col items-center md:flex-row md:justify-between w-full max-w-7xl mt-20">
+    <!-- Text -->
+    <div class="text-white text-center md:text-left">
+      <div class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
+        <span class="text-gray-400">Freelance</span>
+<p id="text" class="text-red-500 inline-block"></p>
+      </div>
     </div>
 
-    <!-- Hero Text Box -->
-    <div
-      class="hidden lg:flex flex-col gap-5 rounded-md shadow-lg absolute top-0 bottom-0 m-auto right-10 bg-white p-6"
-    >
-      <h1 class="text-4xl font-bold text-indigo-900">Hi, I'm Moses</h1>
-      <p class="text-gray-400">
-        With over 2 years of experience in web design and development. Lorem
-        ipsum dolor sit amet consectetur adipisicing elit. Non quam quo
-        provident, facilis minus temporibus veniam nostrum reprehenderit nihil?
+    <!-- About Me Box -->
+    <div class="mt-12 lg:mt-0 p-6 md:p-8 bg-white dark:bg-gray-700 rounded-lg shadow-lg max-w-md">
+      <h2 class="text-2xl font-bold text-indigo-900 dark:text-indigo-300">Hi, I'm Moses</h2>
+      <p class="mt-2 text-gray-600 dark:text-gray-300">
+        With over 2 years of experience in web design and development.
       </p>
       <a
-        class="bg-indigo-600 text-white text-xl px-4 py-2 rounded-md font-semibold w-fit"
+        class="mt-4 inline-block bg-indigo-600 text-white text-xl px-6 py-3 rounded-full font-semibold transition hover:bg-indigo-700"
         href="#contact"
         >Hire Me</a
       >
     </div>
   </div>
+</section>
+
 
   <!-- About Section -->
-  <section class="px-10">
-    <div
-      class="container mx-auto py-40 flex flex-col-reverse lg:flex-row items-center gap-20"
-    >
-      <!-- Left -->
+  <section id="about" class="px-10">
+    <div class="container mx-auto py-40 flex flex-col-reverse lg:flex-row items-center gap-20">
       <div class="relative">
-        <img
-          class="img-small absolute top-0 left-0"
-          src="./images/dots image.png"
-          alt="Decorative Dots"
-        />
+        <img class="absolute top-0 left-0 w-24 h-24" src="./images/dots image.png" alt="Decorative Dots" />
         <div class="h-full rounded-full overflow-hidden">
-          <img class="img-card" src="./images/potrait image.jpeg" alt="Portrait" />
+          <img class="w-full h-64 object-cover rounded-lg" src="./images/potrait image.jpeg" alt="Portrait" />
         </div>
       </div>
 
-      <!-- Right -->
       <div class="my-auto flex flex-col gap-3">
         <h1 class="text-indigo-600 font-bold">ABOUT ME</h1>
         <h2 class="text-3xl font-medium">Better Design</h2>
         <h2 class="text-3xl font-medium">Better Experience</h2>
-        <p class="text-gray-400">
+        <p class="text-gray-500">
           I design and build digital products. I'm a multidisciplinary creator
           with over 10 years of experience in a wide range of design disciplines.
         </p>
-
-        <h2 class="text-gray-400 font-medium">HTML</h2>
-        <div class="w-full bg-gray-200 h-1.5 rounded-md">
-          <div class="w-full bg-indigo-600 h-1.5 rounded-md"></div>
-        </div>
-
-        <h2 class="text-gray-400 font-medium">JavaScript</h2>
-        <div class="w-full bg-gray-200 h-1.5 rounded-md">
-          <div class="w-4/6 bg-indigo-600 h-1.5 rounded-md"></div>
-        </div>
-
-        <h2 class="text-gray-400 font-medium">React</h2>
-        <div class="w-full bg-gray-200 h-1.5 rounded-md">
-          <div class="w-5/6 bg-indigo-600 h-1.5 rounded-md"></div>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- Services Section -->
-  <section>
+  <section id="services" class="bg-gray-100 py-20 px-10">
     <div class="container mx-auto text-center mb-10">
       <h1 class="text-indigo-600 font-bold">SERVICES</h1>
       <h2 class="text-3xl font-bold">What Do I Offer?</h2>
-      <p class="w-1/2 mx-auto text-gray-400">
+      <p class="w-full md:w-1/2 mx-auto text-gray-500">
         My approach to website design is to create a website that strengthens
-        your company's brand while ensuring ease and simplicity for your
-        audience.
+        your brand while ensuring simplicity for your audience.
       </p>
     </div>
 
-    <div class="p-5 flex flex-wrap justify-center gap-5">
-      <div
-        class="w-full md:w-4/12 shadow-xl rounded-lg p-5 flex flex-col gap-3"
-      >
-        <img
-          class="img-card"
-          src="./images/ui ux image.jpeg"
-          alt="UI/UX Design"
-        />
+    <div class="flex flex-wrap justify-center gap-5">
+      <div class="w-full md:w-4/12 shadow-xl rounded-lg p-5 flex flex-col gap-3 bg-white">
+        <img class="w-full h-64 object-cover rounded-lg" src="./images/ui ux image.jpeg" alt="UI/UX Design" />
         <h1 class="font-medium text-lg">UI/UX Design</h1>
         <p class="text-indigo-600 font-medium text-sm">
-          I create user-friendly interfaces that enable users to understand how
-          to use complex technical products.
+          I create user-friendly interfaces that enable users to easily navigate complex digital products.
         </p>
-        <a class="text-indigo-600 font-semibold text-sm" href="#">Read More</a>
+      </div>
+      <div class="w-full md:w-4/12 shadow-xl rounded-lg p-5 flex flex-col gap-3 bg-white">
+        <img class="w-full h-64 object-cover rounded-lg" src="./images/project 2.jpeg" alt="Web Development" />
+        <h1 class="font-medium text-lg">Web Development</h1>
+        <p class="text-indigo-600 font-medium text-sm">
+          I build responsive, fast, and beautiful websites that bring your vision to life.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Portfolio Section -->
-  <section>
-    <div class="container mx-auto text-center">
+  <!-- Portfolio Section (Works) -->
+  <section id="works" class="py-20 px-10">
+    <div class="container mx-auto text-center mb-10">
       <h1 class="text-indigo-600 font-bold">PORTFOLIO</h1>
       <h2 class="text-3xl font-bold">Works & Projects</h2>
-      <p class="w-1/2 mx-auto text-gray-400">
-        I specialize in creating interactive websites for individuals and small
-        businesses.
+      <p class="w-full md:w-1/2 mx-auto text-gray-500">
+        I specialize in creating interactive websites for individuals and small businesses.
       </p>
     </div>
 
-    <div class="flex flex-wrap justify-center gap-4 p-5">
-      <div class="w-full md:w-5/12 lg:w-1/5 shadow-xl rounded-lg p-5">
-        <img class="img-card" src="./images/project 2.jpeg" alt="Project 2" />
+    <div class="flex flex-wrap justify-center gap-6 p-5">
+      <div class="w-full md:w-5/12 lg:w-1/5 shadow-xl rounded-lg p-5 bg-white">
+        <img class="w-full h-64 object-cover rounded-lg" src="./images/project 2.jpeg" alt="Project 2" />
       </div>
-      <div class="w-full md:w-5/12 lg:w-1/5 shadow-xl rounded-lg p-5">
-        <img class="img-card" src="./images/project 5.jpg" alt="Project 5" />
+      <div class="w-full md:w-5/12 lg:w-1/5 shadow-xl rounded-lg p-5 bg-white">
+        <img class="w-full h-64 object-cover rounded-lg" src="./images/project 5.jpg" alt="Project 5" />
       </div>
-      <div class="w-full md:w-5/12 lg:w-1/5 shadow-xl rounded-lg p-5">
-        <img class="img-card" src="./images/projects 4.jpeg" alt="Project 4" />
+      <div class="w-full md:w-5/12 lg:w-1/5 shadow-xl rounded-lg p-5 bg-white">
+        <img class="w-full h-64 object-cover rounded-lg" src="./images/projects 4.jpeg" alt="Project 4" />
       </div>
-      <div class="w-full md:w-5/12 lg:w-1/5 shadow-xl rounded-lg p-5">
-        <img class="img-card" src="./images/project 6.jpg" alt="Project 6" />
+      <div class="w-full md:w-5/12 lg:w-1/5 shadow-xl rounded-lg p-5 bg-white">
+        <img class="w-full h-64 object-cover rounded-lg" src="./images/project 6.jpg" alt="Project 6" />
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="mt-10">
+  <section id="contact" class="py-20 px-10">
     <div class="container mx-auto text-center">
       <h1 class="text-indigo-600 font-bold">CONTACT</h1>
       <h2 class="text-3xl font-bold">Have a Question?</h2>
-      <p class="w-1/2 mx-auto text-gray-400">
+      <p class="w-full md:w-1/2 mx-auto text-gray-500">
         Do you have an idea? Let's discuss it and see what we can do together.
       </p>
     </div>
 
-    <form class="mt-5 p-8 flex flex-col gap-5 items-center">
-      <input
-        class="p-2 w-full ring-1 ring-indigo-300 rounded-sm"
-        type="text"
-        placeholder="Name Surname"
-      />
-      <input
-        class="p-2 w-full ring-1 ring-indigo-300 rounded-sm"
-        type="email"
-        placeholder="Email"
-      />
-      <textarea
-        class="p-2 w-full ring-1 ring-indigo-300 rounded-sm"
-        cols="30"
-        rows="10"
-        placeholder="Message..."
-      ></textarea>
+    <form class="mt-8 p-8 flex flex-col gap-5 items-center max-w-2xl mx-auto bg-white rounded-lg shadow-md">
+      <input class="p-3 w-full ring-1 ring-indigo-300 rounded-md" type="text" placeholder="Name Surname" />
+      <input class="p-3 w-full ring-1 ring-indigo-300 rounded-md" type="email" placeholder="Email" />
+      <textarea class="p-3 w-full ring-1 ring-indigo-300 rounded-md" rows="5" placeholder="Message..."></textarea>
       <button
-        class="bg-indigo-600 text-white text-xl px-4 py-2 rounded-md font-semibold w-fit cursor-pointer"
+        class="bg-indigo-600 text-white text-lg px-6 py-2 rounded-md font-semibold w-fit cursor-pointer hover:bg-indigo-700"
         type="submit"
       >
         Send Message
@@ -282,29 +217,26 @@
   </section>
 
   <!-- Footer -->
-  <footer class="w-full bg-gray-800 mt-10">
+  <footer class="w-full bg-indigo-800 mt-10">
     <div
-      class="container mx-auto py-5 flex flex-col md:flex-row items-center justify-between"
+      class="container mx-auto py-5 flex flex-col md:flex-row items-center justify-between px-4 text-white"
     >
       <div class="flex items-center gap-2">
-        <img class="w-8" src="./images/logo portfolio 1.jpg" alt="Logo" />
-        <span class="text-2xl font-bold text-white">Portwind.</span>
+        <img class="w-8 rounded-full" src="./images/logo portfolio 1.jpg" alt="Logo" />
+        <span class="text-2xl font-bold">Portwind.</span>
       </div>
-      <span class="hidden md:block font-medium text-white">
+      <span class="hidden md:block font-medium">
         © 2025 Portwind. Designed with ♥️ by Moses.
       </span>
 
-      <!-- Social Media Icons -->
-      <div class="flex gap-4 mt-3 md:mt-0 text-white text-lg">
-        <a href="#" class="hover:text-indigo-400"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="hover:text-indigo-400"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="hover:text-indigo-400"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="hover:text-indigo-400"><i class="fab fa-linkedin-in"></i></a>
+      <div class="flex gap-4 mt-3 md:mt-0 text-lg">
+        <a href="#" class="hover:text-indigo-300"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="hover:text-indigo-300"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="hover:text-indigo-300"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="hover:text-indigo-300"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
   </footer>
-
   <script src="./app.js"></script>
-  <script src="./autotyping.js"></script>
 </body>
 </html>
