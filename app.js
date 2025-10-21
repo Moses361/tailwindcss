@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.querySelector("#hamburger");
   const menu = document.querySelector("#menu");
   const moon = document.querySelector("#moon");
-  const hLinks = document.querySelectorAll("#hLink");
+  const hLinks = document.querySelectorAll(".hLink a"); // updated selector
 
   if (hamburger && menu) {
     hamburger.addEventListener("click", () => {
@@ -13,19 +13,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (hLinks && hLinks.length) {
+  // ✅ Close mobile menu when any link is clicked
+  if (hLinks.length) {
     hLinks.forEach((link) => {
       link.addEventListener("click", () => {
-        if (menu && !menu.classList.contains("hidden")) {
+        if (!menu.classList.contains("hidden")) {
           menu.classList.add("hidden");
-          hamburger && hamburger.classList.remove("bg-white");
+          hamburger.classList.remove("bg-white");
         }
       });
     });
   }
 
+  // ---------- DARK MODE ----------
   if (moon) {
-    // initialize icon to match current state
     moon.innerHTML = document.documentElement.classList.contains("dark")
       ? '<i class="fa-solid fa-sun"></i>'
       : '<i class="fa-solid fa-moon"></i>';
@@ -53,10 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     async start() {
-      if (!this.el) {
-        // element missing — nothing to do
-        return;
-      }
+      if (!this.el) return;
       let index = 0;
       while (true) {
         await this.typeText(this.textArray[index]);
@@ -70,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
     typeText(text) {
       return new Promise((resolve) => {
         let i = 0;
-        // ensure element is empty before typing
         this.el.textContent = "";
         const interval = setInterval(() => {
           this.el.textContent += text[i] ?? "";
@@ -100,10 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // only start typing if element exists
+  // Initialize typing effect if element exists
   const typingEl = document.querySelector("#text");
   if (typingEl) {
-    // add blinking cursor element (CSS will style it)
     if (
       !typingEl.nextElementSibling ||
       !typingEl.nextElementSibling.classList.contains("typing-cursor")
@@ -122,11 +118,9 @@ document.addEventListener("DOMContentLoaded", () => {
       waitBetweenWords: 500,
     });
     exampleTyping.start();
-  } else {
-    // debug: element not found
-    // console.warn("AutoTyping: no element found with id '#text'");
   }
 });
+
 // Smooth scroll for in-page links (anchor tags)
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
