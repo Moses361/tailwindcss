@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Works | Moses Odhiambo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Nunito", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-50 text-gray-900">
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <nav class="w-full bg-indigo-700 shadow-lg fixed top-0 left-0 z-50">
+      <div
+        class="container mx-auto py-5 flex justify-between items-center px-4 text-white"
+      >
+        <!-- Logo -->
+        <a
+          href="index.html#homepage"
+          class="flex items-center gap-2 hover:opacity-80 transition"
+        >
+          <img
+            class="w-8 rounded-full"
+            src="./images/logo portfolio 1.jpg"
+            alt="Logo"
+          />
+          <span class="text-2xl font-bold">Portfolio</span>
+        </a>
+
+        <!-- Menu -->
+        <ul
+          id="menu"
+          class="hidden md:flex flex-col md:flex-row absolute md:static top-16 left-0 bg-indigo-700 md:bg-transparent w-full md:w-auto text-center md:text-left md:space-x-10 font-medium space-y-4 md:space-y-0 py-4 md:py-0 transition-all duration-300 ease-in-out"
+        >
+          <li
+            class="hLink hover:text-indigo-200 transition-colors duration-200"
+          >
+            <a href="index.html#homepage">Homepage</a>
+          </li>
+
+          <li
+            class="hLink hover:text-indigo-200 transition-colors duration-200"
+          >
+            <a href="about-us.html">About</a>
+          </li>
+
+          <li
+            class="hLink hover:text-indigo-200 transition-colors duration-200"
+          >
+            <a href="index.html#services">Services</a>
+          </li>
+
+          <li
+            class="hLink hover:text-indigo-200 transition-colors duration-200"
+          >
+            <a href="works.html">Works</a>
+          </li>
+
+          <li
+            class="hLink hover:text-indigo-200 transition-colors duration-200"
+          >
+            <a href="index.html#contact">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Dark Mode Toggle -->
+        <button id="moon" class="hidden md:block text-white text-xl">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <!-- Hamburger Icon -->
+        <div id="hamburger" class="space-y-1 cursor-pointer md:hidden">
+          <div class="w-6 h-0.5 bg-white"></div>
+          <div class="w-6 h-0.5 bg-white"></div>
+          <div class="w-6 h-0.5 bg-white"></div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-28 pb-20 container mx-auto px-6">
+      <!-- Intro -->
+      <section class="text-center mb-16">
+        <p class="text-blue-600 font-semibold uppercase">My Portfolio</p>
+        <h1 class="text-4xl font-extrabold mt-2 mb-4">My Works</h1>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          A showcase of the projects I’ve built — from community dashboards to
+          business websites and personal portfolios.
+        </p>
+      </section>
+
+      <!-- Projects Section -->
+      <section class="space-y-12">
+        <!-- Project 1 -->
+        <div
+          class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-md overflow-hidden"
+        >
+          <img
+            src="./images/works 2.png"
+            alt="Community Dashboard"
+            class="w-full md:w-1/2 h-64 object-cover"
+          />
+          <div class="p-6 md:w-1/2">
+            <h2 class="text-2xl font-bold mb-3">Community Dashboard Website</h2>
+            <p class="text-gray-600 mb-4">
+              A fully responsive community dashboard built with React and
+              TailwindCSS for data visualization and content management.
+            </p>
+            <a
+              href="https://community-dashboard-three.vercel.app/"
+              target="_blank"
+              class="inline-block bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition"
+            >
+              View Project
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div
+          class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-md overflow-hidden"
+        >
+          <img
+            src="./images/work 4.png"
+            alt="Packers and Movers"
+            class="w-full md:w-1/2 h-64 object-cover"
+          />
+          <div class="p-6 md:w-1/2">
+            <h2 class="text-2xl font-bold mb-3">Packers and Movers Website</h2>
+            <p class="text-gray-600 mb-4">
+              A sleek, mobile-first website for a logistics company. Built with
+              HTML, Tailwind CSS, and JavaScript to deliver a fast and engaging
+              experience.
+            </p>
+            <a
+              href="https://github.com/Moses361/PAM"
+              target="_blank"
+              class="inline-block bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition"
+            >
+              View Project
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div
+          class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-md overflow-hidden"
+        >
+          <img
+            src="./images/portfolio 1.png"
+            alt="Portfolio Work"
+            class="w-full md:w-1/2 h-64 object-cover"
+          />
+          <div class="p-6 md:w-1/2">
+            <h2 class="text-2xl font-bold mb-3">My Portfolio Work</h2>
+            <p class="text-gray-600 mb-4">
+              My personal portfolio showcasing various web projects, design
+              styles, and development techniques. Designed with Tailwind and
+              Vite.
+            </p>
+            <a
+              href="https://tailwindcss-six-alpha.vercel.app/"
+              target="_blank"
+              class="inline-block bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition"
+            >
+              View Project
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div
+          class="flex flex-col md:flex-row items-center bg-white rounded-2xl shadow-md overflow-hidden"
+        >
+          <img
+            src="./images/project 3.png"
+            alt="Luxury Tours"
+            class="w-full md:w-1/2 h-64 object-cover"
+          />
+          <div class="p-6 md:w-1/2">
+            <h2 class="text-2xl font-bold mb-3">Luxury Tours Website</h2>
+            <p class="text-gray-600 mb-4">
+              A modern travel and tours website focused on luxury vacation
+              experiences. Built with responsive design principles and hosted on
+              Vercel.
+            </p>
+            <a
+              href="https://luxury-tours-main-3v5l.vercel.app/"
+              target="_blank"
+              class="inline-block bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition"
+            >
+              View Project
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-6 text-center">
+      <p>&copy; <span id="year"></span> Moses Odhiambo. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
